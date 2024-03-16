@@ -35,6 +35,7 @@ partial class FrmProducts
         txtMax = new TextBox();
         btnFiltre = new Button();
         cmbCategories = new ComboBox();
+        btnNew = new Button();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         SuspendLayout();
         // 
@@ -45,6 +46,8 @@ partial class FrmProducts
         dataGridView1.Name = "dataGridView1";
         dataGridView1.Size = new Size(776, 378);
         dataGridView1.TabIndex = 0;
+        dataGridView1.CellClick += dataGridView1_CellClick;
+        dataGridView1.DoubleClick += dataGridView1_DoubleClick;
         // 
         // txtMin
         // 
@@ -91,16 +94,28 @@ partial class FrmProducts
         // cmbCategories
         // 
         cmbCategories.FormattingEnabled = true;
-        cmbCategories.Location = new Point(667, 12);
+        cmbCategories.Location = new Point(620, 12);
         cmbCategories.Name = "cmbCategories";
-        cmbCategories.Size = new Size(121, 23);
+        cmbCategories.Size = new Size(168, 23);
         cmbCategories.TabIndex = 6;
+        cmbCategories.SelectedIndexChanged += cmbCategories_SelectedIndexChanged;
+        // 
+        // btnNew
+        // 
+        btnNew.Location = new Point(517, 11);
+        btnNew.Name = "btnNew";
+        btnNew.Size = new Size(75, 23);
+        btnNew.TabIndex = 7;
+        btnNew.Text = "NEW";
+        btnNew.UseVisualStyleBackColor = true;
+        btnNew.Click += btnNew_Click;
         // 
         // FrmProducts
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(btnNew);
         Controls.Add(cmbCategories);
         Controls.Add(btnFiltre);
         Controls.Add(label2);
@@ -125,4 +140,5 @@ partial class FrmProducts
     private TextBox txtMax;
     private Button btnFiltre;
     private ComboBox cmbCategories;
+    private Button btnNew;
 }

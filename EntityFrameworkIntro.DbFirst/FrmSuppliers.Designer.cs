@@ -36,6 +36,7 @@ partial class FrmSuppliers
         dgvSupplier = new DataGridView();
         btnTake = new Button();
         btnNewForm = new Button();
+        btnNew = new Button();
         ((System.ComponentModel.ISupportInitialize)dgvSupplier).BeginInit();
         SuspendLayout();
         // 
@@ -101,19 +102,29 @@ partial class FrmSuppliers
         // 
         // btnNewForm
         // 
-        btnNewForm.Location = new Point(713, 27);
+        btnNewForm.Location = new Point(586, 27);
         btnNewForm.Name = "btnNewForm";
         btnNewForm.Size = new Size(75, 23);
         btnNewForm.TabIndex = 7;
-        btnNewForm.Text = "New";
+        btnNewForm.Text = "GET";
         btnNewForm.UseVisualStyleBackColor = true;
         btnNewForm.Click += btnNewForm_Click;
+        // 
+        // btnNew
+        // 
+        btnNew.Location = new Point(703, 26);
+        btnNew.Name = "btnNew";
+        btnNew.Size = new Size(75, 23);
+        btnNew.TabIndex = 8;
+        btnNew.Text = "NEW";
+        btnNew.UseVisualStyleBackColor = true;
         // 
         // FrmSuppliers
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(btnNew);
         Controls.Add(btnNewForm);
         Controls.Add(btnTake);
         Controls.Add(dgvSupplier);
@@ -140,4 +151,5 @@ partial class FrmSuppliers
     private DataGridView dgvSupplier;
     private Button btnTake;
     private Button btnNewForm;
+    private Button btnNew;
 }
