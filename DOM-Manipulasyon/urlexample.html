@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 100%;
+            height: 100vh;
+        }
+        img{
+            width: 100px;
+            height: auto;
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-box">
+            <input id="left" type="number">
+        </div>
+        <div class="input-box">
+            <button onclick="changePoint()">Go</button>
+        </div>
+        <img src="img1.png" alt="">
+    </div>
+    
+
+    <script>
+        //resmi her butona bastığında 50px sağa kaydır
+        var left = 0;
+        function changePoint(){
+            left += (Number)(document.getElementById("left").value);
+            var img = document.querySelector("img");
+            img.style.marginLeft = left + "px";
+        }
+    </script>
+</body>
+</html>

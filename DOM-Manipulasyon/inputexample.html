@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .input-box, .box{
+            width: 300px;
+            height: 50px;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+        }
+        .input-box input, .box label, .input-box button{
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-box">
+        <input id="number1" type="number">
+    </div>
+    <div class="input-box">
+        <input id="number2" type="number">
+    </div>
+    <div class="box">
+        <label id="result"></label>
+    </div>
+    <div class="box">
+        <button onclick="calculate()">Hesapla</button>
+    </div>
+    <script>
+        // function calculate(){
+        //     var number1 = (Number)(document.getElementById("number1").value);
+        //     var number2 = (Number)(document.getElementById("number2").value);
+        //     var result = number1 + number2;
+        //     document.getElementById("result").value = result;
+        //     //alert(result);
+        // }
+        
+        function calculate(){
+            var inputs = document.querySelectorAll("input");
+            var result = 0;
+            inputs.forEach(input => {
+                result += (Number)(input.value);
+            });
+            document.getElementById("result").innerText = result;
+        }
+
+    </script>
+</body>
+</html>

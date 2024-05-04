@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #666;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 1s;
+            position: absolute;
+            transform: all .5s;
+        }
+        .box button{
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        #box1, #box4{
+            background-color: red;
+        }
+        #box2{
+            background-color: grey;
+        }
+        #box3{
+            background-color: black;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="box" id="box1" style="z-index: 1;"><button></button></div>
+    <div class="box" id="box2"><button></button></div>
+    <div class="box" id="box3"><button></button></div>
+    <div class="box" id="box4"><button></button></div>
+
+    <script>
+        // 1) 4 tane box oluşturulum ve bunları flex kullanarak sayfanın ortasına sabitleyelim.
+        // 2) Boxlarımız altlarında birer buton içersin. Her bir buton kendi box'ı için tanımlanmış olsun.
+        // 3) İlk box sağdan sola hareket etsin.
+        // 4) İkinci box aşağıdan yukarı hareket etsin.
+        // 5) Üçüncü box ise kendi etrafında bir tur atsın
+        // 6) Son box ise scale olarak boyutu büyüsün
+        // 7) Tüm click event geçişlerini transition geçiş efektiyle hareketini görelim.
+
+        var box1 = document.getElementById("box1");
+        box1.addEventListener("click", function(){
+            box1.style.zIndex = -1;
+            box2.style.zIndex = 1;
+            let isLeft = false;
+            let speed = 10;
+            let right = box1.style.right;
+            
+            setInterval(() => {
+                if(isLeft){
+                    right += speed;
+                    box1.style.right = right + "px";
+                    if(right >= window.innerWidth - 100){
+                        isLeft = false;
+                    }
+                }
+                else{
+                    right -= speed;
+                    box1.style.right = right + "px";
+                    if(right <= 0){
+                        isLeft = true;
+                    }
+                }
+            }, 100);
+        }); 
+        var box2 = document.getElementById("box2");
+        box2.addEventListener("click", function(){
+            box2.style.zIndex = -1;
+            box3.style.zIndex = 1;
+            let isUp = false;
+            let speed = 10;
+            let bottom = box2.style.bottom;
+            
+            setInterval(() => {
+                if(isUp){
+                    bottom += speed;
+                    box2.style.bottom = bottom + "px";
+                    if(bottom >= window.innerHeight - 100){
+                        isUp = false;
+                    }
+                }
+                else{
+                    bottom -= speed;
+                    box2.style.bottom = bottom + "px";
+                    if(bottom <= 0){
+                        isUp = true;
+                    }
+                }
+            }, 100);
+        });
+        var box3 = document.getElementById("box3");
+        box3.addEventListener("click", function(){
+            box3.style.zIndex = -1;
+            box4.style.zIndex = 1;
+            let degree = 0;
+            let speed = 10;
+            setInterval(() => {
+                degree += speed;
+                box3.style.transform = "rotate(" + degree + "deg)";
+            }, 100);
+        });
+        var box4 = document.getElementById("box4");
+        box4.addEventListener("click", function(){
+            box4.style.zIndex = -2;
+            box3.style.zIndex = 1;
+            let scale = 1;
+            let speed = 0.1;
+            setInterval(() => {
+                if(scale >= 5){
+                    speed = -0.2;
+                }
+                else if(scale <= 0){
+                    speed = 0.2;
+                }
+                scale += speed;
+                box4.style.transform = "scale(" + scale + ")";
+            }, 100);
+        });
+
+    </script>
+</body>
+</html>
